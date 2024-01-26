@@ -1,10 +1,31 @@
 package Animal;
 
-public interface Animal extends Cloneable {
+public abstract class Animal {
+    public String name;
 
-    public void info();
+    public Animal(String name){
+        this.name = name;
+    }
 
-    void setName(String name);
+    protected Animal(Animal target){
+        if (target != null){
+            this.name = target.name;
+        }
+    }
 
-    public Animal clone();
+    public abstract Animal clone();
+
+    public void info(){
+        System.out.println("\n++ INFO ++");
+        System.out.println("Name: " + name);
+        System.out.println("Objekt: " + this);
+    };
+
+    public void setName(String name){
+        this.name = name;
+    };
+
+    public String getName() {
+        return name;
+    }
 }

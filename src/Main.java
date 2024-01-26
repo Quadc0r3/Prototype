@@ -1,27 +1,36 @@
-import Auto.*;
 import Animal.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
-    public static void main(String[] args) throws CloneNotSupportedException {
-//        Motor motor = new Motor("General Motors",100,1.6);
-//        Auto prototyp = new Auto(motor, Edition.TINY,4);
-//        Auto neuesAuto = prototyp.clone();
-//
-//        compare(prototyp, neuesAuto);
-//
-//        neuesAuto.tuneMotor();
+    public static void main(String[] args) {
+        Farm farmDerTiere = new Farm();
 
-        Sheep prototyp = new Sheep("Dolly","Blau");
-        Sheep clone = prototyp.clone();
-        Animal clone2 = prototyp.clone();
+        farmDerTiere.info();
 
-        clone.setName("Dolly2");
-        clone.info();
-        clone2.info();
+        Sheep a = (Sheep) farmDerTiere.get("Dolly");
+        Animal b = farmDerTiere.get("Squealer");
+        Animal c = farmDerTiere.get("Dolly");
+        WoolyPig d = (WoolyPig) farmDerTiere.get("Wool-E");
+        WoolyPig e = (WoolyPig) farmDerTiere.get("Wool-E");
 
-        clone.rasieren();
+        a.info();
+        b.info();
+        c.info();
+        d.info();
+        e.info();
 
-        clone.info();
-        clone2.info();
+        a.setName("Dolly 2");
+        a.bemalen("grün");
+        d.bemalen("pink");
+        e.bemalen("lila");
+
+        a.info();
+        b.info();
+        c.info();
+        d.info();
+        e.info();
     }
 
     public static void compare(Object obj1, Object obj2){
