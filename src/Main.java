@@ -1,44 +1,59 @@
 import Animal.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+    private static Farm farmDerTiere;
     public static void main(String[] args) {
-        Farm farmDerTiere = new Farm();
+        farmDerTiere = new Farm();
 
         farmDerTiere.info();
 
-        Sheep a = (Sheep) farmDerTiere.get("Dolly");
-        Animal b = farmDerTiere.get("Squealer");
-        Animal c = farmDerTiere.get("Dolly");
-        WoolyPig d = (WoolyPig) farmDerTiere.get("Wool-E");
-        WoolyPig e = (WoolyPig) farmDerTiere.get("Wool-E");
+        Scanner scanner = new Scanner(System.in);
 
-        a.info();
-        b.info();
-        c.info();
-        d.info();
-        e.info();
-
-        a.setName("Dolly 2");
-        a.bemalen("grün");
-        d.bemalen("pink");
-        e.bemalen("lila");
-
-        a.info();
-        b.info();
-        c.info();
-        d.info();
-        e.info();
+        System.out.println("\n Welche Clone Methode?");
+        System.out.println("[1] Shallow");
+        System.out.println("[2] Deep");
+        switch (scanner.nextInt()){
+            case 1:
+                shallow();
+                break;
+            case 2:
+                deep();
+                break;
+            default:
+                return;
+        }
     }
 
-    public static void compare(Object obj1, Object obj2){
-        System.out.println("+----------------------+");
-        System.out.println("|       COMPARE        |");
-        System.out.println("+----------------------+");
-        System.out.println("Gleiche Referenz? \n - " + (obj1 == obj2) + " (" + obj1 + " - " + obj2 + ")");
-        System.out.println("Gleiche Klasse? \n - " + (obj1.getClass() == obj2.getClass()) + " (" + obj1.getClass() + " - " + obj2.getClass() + ")");
-//        System.out.println("Gleiche Eigenschaften? \n - " + (obj1.equals(obj2)) + " (" + obj1 + " - " + obj2 + ")");
+    private static void deep(){
+        WoolyPig a = (WoolyPig) farmDerTiere.get("Wool-E");
+        WoolyPig b = (WoolyPig) farmDerTiere.get("Wool-E");
+        b.setName("Wool-E 2");
+
+        a.info();
+        b.info();
+        System.out.println();
+
+        a.bemalen("rot");
+
+        a.info();
+        b.info();
+    }
+
+    private static void shallow(){
+        Sheep a = (Sheep) farmDerTiere.get("Dolly");
+        Sheep b = (Sheep) farmDerTiere.get("Dolly");
+        b.setName("Dolly 2"); //primitive Datentypen werden nicht allgemein überschrieben
+
+        a.info();
+        b.info();
+        System.out.println();
+
+        a.bemalen("rot"); //Komplexe Datentypen schon
+
+        a.info();
+        b.info();
+
     }
 }

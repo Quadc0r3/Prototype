@@ -36,5 +36,6 @@ public class Farm { //sozusagen die Farm der Tiere
             System.out.println("   Klasse: " + animalEntry.getValue().getClass());
         }
         System.out.println("Bewohner: " + bewohner);
+        System.out.println();
     }
 }

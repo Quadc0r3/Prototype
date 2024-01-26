@@ -11,13 +11,6 @@ public class WoolyPig extends Pig{
         this.wolle = new Wolle(farbe);
     }
 
-    public WoolyPig(WoolyPig target) {
-        super(target);
-        if (target != null){
-            this.wolle = target.wolle.clone();
-        }
-    }
-
     public void bemalen(String farbe){
         wolle.setFarbe(farbe);
         System.out.println("-> " + super.getName() + " ist nun " + farbe + ".");
@@ -32,7 +25,8 @@ public class WoolyPig extends Pig{
     @Override
     public WoolyPig clone() {
         System.out.println("-> Wollschwein wird geklont.");
-        return new WoolyPig(this);
-//        return new WoolyPig(this);
+        WoolyPig clone = (WoolyPig) super.clone();
+        clone.wolle = wolle.clone();
+        return clone;
     }
 }

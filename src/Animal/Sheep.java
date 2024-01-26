@@ -3,13 +3,6 @@ package Animal;
 public class Sheep extends Animal {
     private Wolle wolle;
 
-    private Sheep(Sheep target) {
-        super(target);
-        if (target != null) {
-            this.wolle = target.wolle;
-        }
-    }
-
     public Sheep(String name, String farbe) {
         this(name, farbe, "Wolle");
     }
@@ -33,6 +26,7 @@ public class Sheep extends Animal {
     @Override
     public Animal clone() {
         System.out.println("-> Schaf wird geklont");
-        return new Sheep(this);
+        return super.clone();
+//        return new Sheep(this);
     }
 }

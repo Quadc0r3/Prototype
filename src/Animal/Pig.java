@@ -2,12 +2,6 @@ package Animal;
 
 public class Pig extends Animal{
     private String antromorphie;
-    protected Pig(Pig target) {
-        super(target);
-        if (target != null) {
-            this.antromorphie = target.antromorphie;
-        }
-    }
 
     public Pig(String name, String antromorphie){
         super(name);
@@ -23,6 +17,6 @@ public class Pig extends Animal{
     @Override
     public Animal clone() {
         System.out.println("-> Schwein wird geklont.");
-        return new Pig(this);
+        return super.clone();
     }
 }

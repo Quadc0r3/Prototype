@@ -1,6 +1,6 @@
 package Animal;
 
-public abstract class Animal {
+public abstract class Animal implements Cloneable {
     public String name;
 
     public Animal(String name){
@@ -13,7 +13,13 @@ public abstract class Animal {
         }
     }
 
-    public abstract Animal clone();
+    public Animal clone(){
+        try {
+            return (Animal) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
+    };
 
     public void info(){
         System.out.println("\n++ INFO ++");
