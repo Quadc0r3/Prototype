@@ -14,9 +14,9 @@ public class Pig extends Animal{
         System.out.println("Antromorphie: " + antromorphie);
     }
 
-    @Override
-    public Animal clone() {
-        System.out.println("-> Schwein wird geklont.");
-        return super.clone();
-    }
+//    @Override
+//    public Animal clone() {
+//        System.out.println("-> Schwein wird geklont.");
+//        return super.clone();
+//    }
 }

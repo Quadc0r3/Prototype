@@ -20,7 +20,7 @@ public class Farm { //sozusagen die Farm der Tiere
 
     public Animal put(String name, Animal animal){
         farm.put(name, animal);
-        return animal; //warum return animal?
+        return animal; //um mit dem hinzugefügten Tier etwas machen zu können
     }
 
     public Animal get(String name){

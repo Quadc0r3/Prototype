@@ -13,7 +13,7 @@ public abstract class Animal implements Cloneable {
         }
     }
 
-    public Animal clone(){
+    protected Animal clone() {
         try {
             return (Animal) super.clone();
         } catch (CloneNotSupportedException e) {

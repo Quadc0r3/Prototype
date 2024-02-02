@@ -2,6 +2,7 @@ package Auto;
 
 import java.util.Objects;
 
+//Beispiel aus "Design Pattern mit Java: Eine Einführung" - Olaf Musch
 public class Auto implements Cloneable{
     private Motor motor;
     private Edition edition;

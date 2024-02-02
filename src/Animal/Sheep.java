@@ -23,10 +23,10 @@ public class Sheep extends Animal {
         System.out.println("-> " + super.getName() + " ist nun " + farbe + ".");
     }
 
-    @Override
-    public Animal clone() {
-        System.out.println("-> Schaf wird geklont");
-        return super.clone();
-//        return new Sheep(this);
-    }
+//    @Override
+//    public Animal clone() {
+//        System.out.println("-> Schaf wird geklont");
+//        return super.clone();
+////        return new Sheep(this);
+//    }
 }
